@@ -3,55 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arketon Mimarlık - Portföy</title>
+    <title>Arketon Mimarlık - Projeler</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <h1>Arketon Mimarlık</h1>
-            </div>
-            <ul class="nav-links">
+    <div class="container">
+        <aside class="sidebar">
+            <ul class="menu">
                 <li><a href="index.html">Ana Sayfa</a></li>
-                <li><a href="portfolio.html">Portföy</a></li>
-                <li><a href="about.html">Hakkımızda</a></li>
-                <li><a href="blog.html">Blog</a></li>
+                <li>
+                    <details open>
+                        <summary>Projeler</summary>
+                        <ul>
+                            <li>
+                                <details>
+                                    <summary>Mimarlık</summary>
+                                    <ul>
+                                        <li><a href="portfolio.html?filter=mimarlik-konut">Konut</a></li>
+                                        <li><a href="portfolio.html?filter=mimarlik-ticari">Ticari</a></li>
+                                        <li><a href="portfolio.html?filter=mimarlik-akaryakit">Akaryakıt İstasyonu</a></li>
+                                    </ul>
+                                </details>
+                            </li>
+                            <li><a href="portfolio.html?filter=icmimarlik">İç Mimarlık</a></li>
+                            <li><a href="portfolio.html?filter=uygulama">Uygulama</a></li>
+                            <li>
+                                <details>
+                                    <summary>Görselleştirme</summary>
+                                    <ul>
+                                        <li><a href="portfolio.html?filter=gorsel-konut">Konut</a></li>
+                                        <li><a href="portfolio.html?filter=gorsel-ticaret">Ticaret</a></li>
+                                        <li><a href="portfolio.html?filter=gorsel-akaryakit">Akaryakıt İstasyonu</a></li>
+                                        <li><a href="portfolio.html?filter=gorsel-villa">Villa</a></li>
+                                        <li><a href="portfolio.html?filter=gorsel-bungalov">Bungalov</a></li>
+                                        <li><a href="portfolio.html?filter=gorsel-site">Site</a></li>
+                                    </ul>
+                                </details>
+                            </li>
+                            <li><a href="portfolio.html?filter=enerji">Enerji Kimlik Belgesi</a></li>
+                            <li><a href="portfolio.html?filter=akustik">Akustik</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary>Hizmetler</summary>
+                        <ul>
+                            <li>
+                                <details>
+                                    <summary>Mimarlık</summary>
+                                    <ul>
+                                        <li><a href="services.html#mimarlik-konut">Konut</a></li>
+                                        <li><a href="services.html#mimarlik-ticari">Ticari</a></li>
+                                        <li><a href="services.html#mimarlik-akaryakit">Akaryakıt İstasyonu</a></li>
+                                    </ul>
+                                </details>
+                            </li>
+                            <li><a href="services.html#icmimarlik">İç Mimarlık</a></li>
+                            <li><a href="services.html#uygulama">Uygulama</a></li>
+                            <li>
+                                <details>
+                                    <summary>Görselleştirme</summary>
+                                    <ul>
+                                        <li><a href="services.html#gorsel-konut">Konut</a></li>
+                                        <li><a href="services.html#gorsel-ticaret">Ticaret</a></li>
+                                        <li><a href="services.html#gorsel-akaryakit">Akaryakıt İstasyonu</a></li>
+                                        <li><a href="services.html#gorsel-villa">Villa</a></li>
+                                        <li><a href="services.html#gorsel-bungalov">Bungalov</a></li>
+                                        <li><a href="services.html#gorsel-site">Site</a></li>
+                                    </ul>
+                                </details>
+                            </li>
+                            <li><a href="services.html#enerji">Enerji Kimlik Belgesi</a></li>
+                            <li><a href="services.html#akustik">Akustik</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li><a href="blog.html">Referanslar</a></li>
+                <li><a href="about.html">Ekip</a></li>
                 <li><a href="communication.html">İletişim</a></li>
             </ul>
-        </nav>
-    </header>
+        </aside>
+        <div class="main-content">
+            <header>
+                <nav>
+                    <div class="logo">
+                        <h1>Arketon Mimarlık</h1>
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="portfolio.html">Portföy</a></li>
+                        <li><a href="about.html">Hakkımızda</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="communication.html">İletişim</a></li>
+                    </ul>
+                </nav>
+            </header>
 
-    <main>
-        <section class="portfolio">
-            <h2>Portföyümüz</h2>
-            <p>Yaptığımız projelerin bazılarını burada görebilirsiniz.</p>
+            <main>
+                <section class="portfolio">
+                    <h2>Projelerimiz</h2>
+                    <p>Yaptığımız projelerin bazılarını burada görebilirsiniz.</p>
 
-            <div class="projects">
-                <div class="project">
-                    <img src="images/project1.jpg" alt="Proje 1">
-                    <h3>Modern Konut Projesi</h3>
-                    <p>Şehir merkezinde yer alan modern bir konut kompleksi tasarımı.</p>
-                </div>
+                    <div class="projects" id="projectsContainer">
+                        <!-- Projects will be dynamically loaded here -->
+                    </div>
+                </section>
+            </main>
 
-                <div class="project">
-                    <img src="images/project2.jpg" alt="Proje 2">
-                    <h3>Ticari Bina Tasarımı</h3>
-                    <p>Kuruluşunuz için fonksiyonel ve estetik bir ticari bina çözümü.</p>
-                </div>
-
-                <div class="project">
-                    <img src="images/project3.jpg" alt="Proje 3">
-                    <h3>Peyzaj Tasarımı</h3>
-                    <p>Doğayla uyumlu peyzaj düzenlemeleri ve bahçe tasarımları.</p>
+            <!-- Image Modal -->
+            <div id="imageModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <img class="modal-image" src="" alt="">
+                    <div class="modal-nav">
+                        <button id="prevBtn" class="modal-btn">&lt;</button>
+                        <span id="imageCounter" class="image-counter"></span>
+                        <button id="nextBtn" class="modal-btn">&gt;</button>
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
 
-    <footer>
-        <p>&copy; 2025 Arketon Mimarlık. Tüm hakları saklıdır.</p>
-    </footer>
+            <footer>
+                <p>&copy; 2025 Arketon Mimarlık. Tüm hakları saklıdır.</p>
+            </footer>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
