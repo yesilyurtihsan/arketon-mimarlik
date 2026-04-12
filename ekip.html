@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arketon Mimarlık - Projeler</title>
+    <title>Arketon Mimarlık - Ekip</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
                 <li><a href="index.html">Ana Sayfa</a></li>
                 <li><a href="about.html">Hakkımızda</a></li>
                 <li>
-                    <details open>
+                    <details>
                         <summary>Projeler</summary>
                         <ul>
                             <li>
@@ -94,28 +94,26 @@
         <div class="main-content">
 
             <main>
-                <section class="portfolio">
-                    <h2>Projelerimiz</h2>
-                    <p>Yaptığımız projelerin bazılarını burada görebilirsiniz.</p>
+                <section class="about">
+                    <h2>Ekip</h2>
+                    <p>Arketon Mimarlık, 2025 yılında İstanbul’da kurulmuş, modern ve sürdürülebilir mimari çözümler sunan bir mimarlık firmasıdır. Vizyon, misyon ve hizmetlerimiz için <a href="about.html">Hakkımızda</a> sayfasına göz atabilirsiniz.</p>
 
-                    <div class="projects" id="projectsContainer">
-                        <!-- Projects will be dynamically loaded here -->
+                    <div class="team">
+                        <h3>Ekibimiz</h3>
+                        <div class="member">
+                            <img src="images/team-eyup-memis.svg" alt="Eyüp Memiş" width="480" height="480">
+                            <h4>Eyüp Memiş</h4>
+                            <p>Kurucu Ortak ve Baş Mimar</p>
+                        </div>
+
+                        <div class="member">
+                            <img src="images/team-yasin-aydin.svg" alt="Yasin Aydın" width="480" height="480">
+                            <h4>Yasin Aydın</h4>
+                            <p>Mimar</p>
+                        </div>
                     </div>
                 </section>
             </main>
-
-            <!-- Image Modal -->
-            <div id="imageModal" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <img class="modal-image" src="" alt="">
-                    <div class="modal-nav">
-                        <button id="prevBtn" class="modal-btn">&lt;</button>
-                        <span id="imageCounter" class="image-counter"></span>
-                        <button id="nextBtn" class="modal-btn">&gt;</button>
-                    </div>
-                </div>
-            </div>
 
             <footer>
                 <p>&copy; 2025 Arketon Mimarlık. Tüm hakları saklıdır.</p>

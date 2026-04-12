@@ -1,3 +1,73 @@
+// Hero Section Slideshow
+const heroBgImages = [
+    "images/YAPAY ZEKA YAPILAN/1-KONUT/15-İSTANBUL BAĞCILAR HARUN YILDIZ KONUT/ChatGPT Image 27 Mar 2026 14_39_16.png",
+    "images/YAPAY ZEKA YAPILAN/4-VİLLA/1-İZMİR URLA ER YAMAN EVLERİ/ChatGPT Image 27 Mar 2026 16_10_34.png",
+    "images/YAPAY ZEKA YAPILAN/5-SİTE/7-EMLAK KONUT ÜMRANİYE/ChatGPT Image 27 Mar 2026 10_35_19.png",
+    "images/YAPAY ZEKA YAPILAN/6-BUNGALOW/18-BUNGALOW TEKİRDAĞ/ChatGPT Image 27 Mar 2026 14_15_22.png",
+    "images/YAPAY ZEKA YAPILAN/ChatGPT Image 26 Mar 2026 16_07_12.png",
+    "images/YAPAY ZEKA YAPILAN/ChatGPT Image 27 Mar 2026 10_24_16.png"
+];
+
+let currentBgIndex = 0;
+let heroSlideshowTimer = null;
+let homeSlideshowStarted = false;
+
+function resolveAssetUrl(relativePath) {
+    const trimmed = relativePath.replace(/^\/+/, '');
+    const encodedPath = trimmed.split('/').map(encodeURIComponent).join('/');
+    try {
+        return new URL(encodedPath, document.baseURI).href;
+    } catch (e) {
+        return encodedPath;
+    }
+}
+
+function applyHomeBg(index) {
+    const el = document.getElementById('homeSlideshowBg');
+    if (!el) return;
+    const n = heroBgImages.length;
+    currentBgIndex = ((index % n) + n) % n;
+    const url = resolveAssetUrl(heroBgImages[currentBgIndex]);
+    el.style.backgroundImage = 'url(' + JSON.stringify(url) + ')';
+    el.style.backgroundSize = 'cover';
+    el.style.backgroundPosition = 'center';
+    el.style.backgroundRepeat = 'no-repeat';
+}
+
+function clearHomeSlideshowTimer() {
+    if (heroSlideshowTimer) {
+        clearTimeout(heroSlideshowTimer);
+        heroSlideshowTimer = null;
+    }
+}
+
+function scheduleHomeSlideshowTick() {
+    clearHomeSlideshowTimer();
+    if (!document.getElementById('homeSlideshowBg')) return;
+    heroSlideshowTimer = setTimeout(function homeSlideTick() {
+        applyHomeBg(currentBgIndex + 1);
+        heroSlideshowTimer = setTimeout(homeSlideTick, 5000);
+    }, 5000);
+}
+
+function startHeroSlideshow() {
+    if (!document.getElementById('homeSlideshowBg') || heroBgImages.length === 0) return;
+    applyHomeBg(currentBgIndex);
+    scheduleHomeSlideshowTick();
+}
+
+function ensureHomeSlideshow() {
+    if (homeSlideshowStarted || !document.getElementById('homeSlideshowBg')) return;
+    homeSlideshowStarted = true;
+    startHeroSlideshow();
+}
+
+function stepHomeBg(delta) {
+    if (!document.getElementById('homeSlideshowBg')) return;
+    applyHomeBg(currentBgIndex + delta);
+    scheduleHomeSlideshowTick();
+}
+
 // Project Data with all projects and their images
 const projectsData = [
     {
@@ -127,42 +197,96 @@ const projectsData = [
     }
 ];
 
-// Load and render projects
-function loadProjects() {
-    const container = document.getElementById('projectsContainer');
-    if (!container) return;
-
-    container.innerHTML = '';
-
+function getFilteredProjectIndices() {
     const urlParams = new URLSearchParams(window.location.search);
     const filter = urlParams.get('filter');
-
+    const indices = [];
     projectsData.forEach((project, index) => {
-        // Skip if filter is applied and doesn't match
-        if (filter && project.category !== filter) {
-            return;
+        if (!filter || project.category === filter) {
+            indices.push(index);
         }
+    });
+    return indices;
+}
 
-        const projectEl = document.createElement('div');
-        projectEl.className = 'project';
-        projectEl.setAttribute('data-category', project.category);
-        projectEl.setAttribute('data-project-index', index);
+function createProjectElement(index) {
+    const project = projectsData[index];
+    const projectEl = document.createElement('div');
+    projectEl.className = 'project';
+    projectEl.setAttribute('data-category', project.category);
+    projectEl.setAttribute('data-project-index', String(index));
 
-        const firstImage = project.images[0];
-        
-        projectEl.innerHTML = `
+    const firstImage = project.images[0];
+
+    projectEl.innerHTML = `
             <div class="project-image-container">
                 <img src="${firstImage}" alt="${project.name}" class="project-image" data-project-index="${index}">
             </div>
             <h3>${project.name}</h3>
         `;
 
-        projectEl.addEventListener('click', function() {
-            openModal(index);
-        });
-
-        container.appendChild(projectEl);
+    projectEl.addEventListener('click', function () {
+        openModal(index);
     });
+
+    return projectEl;
+}
+
+// Load and render projects (portfolio page)
+function loadProjects() {
+    const container = document.getElementById('projectsContainer');
+    if (!container) return;
+
+    container.innerHTML = '';
+    getFilteredProjectIndices().forEach((index) => {
+        container.appendChild(createProjectElement(index));
+    });
+}
+
+const HOME_PROJECTS_INITIAL = 6;
+const HOME_PROJECTS_STEP = 6;
+let homeProjectsDisplayed = 0;
+
+function getHomeProjectIndices() {
+    return projectsData.map((_, i) => i);
+}
+
+function updateHomeLoadMoreButton() {
+    const btn = document.getElementById('homeProjectsLoadMore');
+    if (!btn) return;
+    const total = getHomeProjectIndices().length;
+    btn.hidden = homeProjectsDisplayed >= total;
+}
+
+function loadMoreHomeProjects() {
+    const container = document.getElementById('homeProjectsContainer');
+    if (!container) return;
+
+    const all = getHomeProjectIndices();
+    const target =
+        homeProjectsDisplayed === 0
+            ? Math.min(HOME_PROJECTS_INITIAL, all.length)
+            : Math.min(homeProjectsDisplayed + HOME_PROJECTS_STEP, all.length);
+
+    for (let i = homeProjectsDisplayed; i < target; i++) {
+        container.appendChild(createProjectElement(all[i]));
+    }
+    homeProjectsDisplayed = target;
+    updateHomeLoadMoreButton();
+}
+
+function initHomeProjects() {
+    const container = document.getElementById('homeProjectsContainer');
+    if (!container) return;
+
+    homeProjectsDisplayed = 0;
+    container.innerHTML = '';
+    loadMoreHomeProjects();
+
+    const btn = document.getElementById('homeProjectsLoadMore');
+    if (btn) {
+        btn.addEventListener('click', loadMoreHomeProjects);
+    }
 }
 
 // Modal functionality
@@ -170,23 +294,29 @@ let currentProjectIndex = 0;
 let currentImageIndex = 0;
 
 function openModal(projectIndex) {
+    const modal = document.getElementById('imageModal');
+    if (!modal) return;
+
     currentProjectIndex = projectIndex;
     currentImageIndex = 0;
-    const modal = document.getElementById('imageModal');
     modal.style.display = 'block';
     showImage();
 }
 
 function closeModal() {
-    document.getElementById('imageModal').style.display = 'none';
+    const modal = document.getElementById('imageModal');
+    if (modal) modal.style.display = 'none';
 }
 
 function showImage() {
     const modal = document.getElementById('imageModal');
+    const modalImg = document.querySelector('.modal-image');
+    if (!modal || !modalImg) return;
+
     const project = projectsData[currentProjectIndex];
     const image = project.images[currentImageIndex];
-    
-    document.querySelector('.modal-image').src = image;
+
+    modalImg.src = image;
     document.getElementById('imageCounter').textContent = 
         `${currentImageIndex + 1} / ${project.images.length}`;
 
@@ -216,9 +346,19 @@ function prevImage() {
 
 // Modal event listeners
 document.addEventListener('DOMContentLoaded', function() {
-    // Load projects on portfolio page
+    ensureHomeSlideshow();
+
+    const homePrev = document.getElementById('homeHeroPrevBtn');
+    const homeNext = document.getElementById('homeHeroNextBtn');
+    if (homePrev) homePrev.addEventListener('click', () => stepHomeBg(-1));
+    if (homeNext) homeNext.addEventListener('click', () => stepHomeBg(1));
+
     if (document.getElementById('projectsContainer')) {
         loadProjects();
+    }
+
+    if (document.getElementById('homeProjectsContainer')) {
+        initHomeProjects();
     }
 
     // Modal close button
@@ -289,6 +429,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+ensureHomeSlideshow();
 
 // E-posta validasyonu
 function isValidEmail(email) {

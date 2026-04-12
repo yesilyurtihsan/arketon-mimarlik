@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arketon Mimarlık - Ana Sayfa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="page-home">
+    <div class="home-fullscreen-bg" id="homeSlideshowBg" aria-hidden="true">
+        <div class="home-fullscreen-bg__shade" aria-hidden="true"></div>
+    </div>
+    <div class="home-bottom-actions" role="group" aria-label="Görseller ve iletişim">
+        <button type="button" class="home-slideshow-btn" id="homeHeroPrevBtn" aria-label="Önceki görsel">‹</button>
+        <button type="button" class="home-slideshow-btn" id="homeHeroNextBtn" aria-label="Sonraki görsel">›</button>
+        <a href="communication.html" class="home-contact-btn">İletişim</a>
+    </div>
     <div class="container">
         <aside class="sidebar">
             <div class="sidebar-icon">
@@ -84,18 +95,48 @@
                     </details>
                 </li>
                 <li><a href="blog.html">Referanslar</a></li>
-                <li><a href="about.html">Ekip</a></li>
+                <li><a href="ekip.html">Ekip</a></li>
                 <li><a href="communication.html">İletişim</a></li>
             </ul>
         </aside>
         <div class="main-content">
+            <main class="page-home-main" id="main">
+                <div class="page-home-inner">
+                    <h1 class="visually-hidden">Arketon Mimarlık</h1>
 
-            <main>
-                <section class="hero">
-                    <h2>Hoş Geldiniz</h2>
-                    <p>Arketon Mimarlık'a hoş geldiniz. Modern ve sürdürülebilir mimari çözümler sunuyoruz.</p>
-                </section>
+                    <section class="portfolio home-intro" aria-labelledby="home-intro-heading">
+                        <h2 id="home-intro-heading">Arketon Mimarlık</h2>
+                        <p>İstanbul merkezli bir mimarlık ofisi olarak konut ve ticari projelerden akaryakıt istasyonları ve site geliştirmelerine kadar geniş bir yelpazede <strong>mimari tasarım</strong>, <strong>3D görselleştirme</strong>, <strong>iç mimarlık</strong> ve <strong>uygulama</strong> süreçlerinde yanınızdayız.</p>
+                        <p>Her projede işlevselliği, estetiği ve sürdürülebilirliği bir araya getiriyor; müşterilerimizin beklentilerini aşan, çevreye duyarlı çözümler üretiyoruz.</p>
+
+                        <h3>Vizyonumuz</h3>
+                        <p>Türkiye’nin ve bölgenin önde gelen mimarlık firmalarından biri olmak; şehirlere değer katan, kalıcı ve özgün yapılar tasarlamak.</p>
+
+                        <h3>Projelerimiz</h3>
+                        <p>Aşağıda seçtiğimiz örnek çalışmalarımızı görebilirsiniz. Tüm projeler ve kategorilere göre filtrelemek için <a href="portfolio.html">Projeler</a> sayfasını ziyaret edebilirsiniz.</p>
+                    </section>
+
+                    <section class="portfolio home-projects-section" aria-labelledby="home-projects-heading">
+                        <h2 id="home-projects-heading">Öne çıkan projeler</h2>
+                        <div class="projects" id="homeProjectsContainer"></div>
+                        <div class="home-load-more-wrap">
+                            <button type="button" class="home-load-more-btn" id="homeProjectsLoadMore">Daha fazla</button>
+                        </div>
+                    </section>
+                </div>
             </main>
+
+            <div id="imageModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <img class="modal-image" src="" alt="">
+                    <div class="modal-nav">
+                        <button type="button" id="prevBtn" class="modal-btn">&lt;</button>
+                        <span id="imageCounter" class="image-counter"></span>
+                        <button type="button" id="nextBtn" class="modal-btn">&gt;</button>
+                    </div>
+                </div>
+            </div>
 
             <footer>
                 <p>&copy; 2025 Arketon Mimarlık. Tüm hakları saklıdır.</p>
