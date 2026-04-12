@@ -173,7 +173,23 @@ aside.sidebar .menu summary {
     -webkit-backdrop-filter: blur(20px) saturate(1.1);
     box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.06);
 }
+.home-fullscreen-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.8s ease-in-out, opacity 0.6s ease-in-out;
+    will-change: background-image;
+}
 
+.home-fullscreen-bg__shade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.42) 100%);
+    pointer-events: none;
+}
 .sidebar-icon {
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -336,7 +352,25 @@ body.page-home .main-content main.page-home-main {
 .page-home-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem 2rem 1rem;
+    padding: calc(100vh + 2rem) 2rem 2rem;
+}
+
+body.page-home .home-intro,
+body.page-home .home-projects-section {
+    background-color: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 24px 90px rgba(0, 0, 0, 0.18);
+    border-radius: 22px;
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+body.page-home .home-intro {
+    margin-top: 0;
+    padding: 2rem;
+}
+
+body.page-home .home-projects-section {
+    padding: 2rem;
 }
 
 body.page-home .home-intro {
