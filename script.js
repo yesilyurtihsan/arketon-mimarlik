@@ -11,6 +11,18 @@ const heroBgImages = [
 let currentBgIndex = 0;
 let heroSlideshowTimer = null;
 let homeSlideshowStarted = false;
+const heroBgPreloads = [];
+
+function preloadHeroBgImages() {
+    if (heroBgPreloads.length > 0 || heroBgImages.length === 0) return;
+
+    heroBgImages.forEach((src, index) => {
+        const url = resolveAssetUrl(src);
+        const img = new Image();
+        img.src = url;
+        heroBgPreloads[index] = img;
+    });
+}
 
 function resolveAssetUrl(relativePath) {
     const trimmed = relativePath.replace(/^\/+/, '');
@@ -52,6 +64,7 @@ function scheduleHomeSlideshowTick() {
 
 function startHeroSlideshow() {
     if (!document.getElementById('homeSlideshowBg') || heroBgImages.length === 0) return;
+    preloadHeroBgImages();
     applyHomeBg(currentBgIndex);
     scheduleHomeSlideshowTick();
 }

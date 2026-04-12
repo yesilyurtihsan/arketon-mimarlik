@@ -387,6 +387,16 @@ body.page-home .home-intro a:hover {
     text-decoration: underline;
 }
 
+body.page-home .home-intro p {
+    margin-bottom: 1.5rem;
+    line-height: 1.85;
+}
+
+body.page-home .home-intro h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
 body.page-home .home-projects-section {
     margin-top: 2rem;
 }
