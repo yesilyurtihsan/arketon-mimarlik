@@ -443,7 +443,12 @@ function createProjectElement(index) {
 
     projectEl.innerHTML = `
             <div class="project-image-container">
-                <img src="${firstImage}" alt="${project.name}" class="project-image" data-project-index="${index}">
+                <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%221%22%20height%3D%221%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3C/svg%3E" 
+                     data-src="${firstImage}" 
+                     alt="${project.name}" 
+                     class="project-image lazyload" 
+                     loading="lazy" 
+                     data-project-index="${index}">
             </div>
             <h3>${project.name}</h3>
         `;
@@ -455,6 +460,37 @@ function createProjectElement(index) {
     return projectEl;
 }
 
+function initProjectImageObserver() {
+    const lazyImages = document.querySelectorAll('img.project-image.lazyload[data-src]');
+    if (!lazyImages.length) return;
+
+    const loadImage = (img) => {
+        const src = img.getAttribute('data-src');
+        if (!src) return;
+        img.src = src;
+        img.removeAttribute('data-src');
+        img.classList.remove('lazyload');
+    };
+
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                const img = entry.target;
+                loadImage(img);
+                obs.unobserve(img);
+            });
+        }, {
+            rootMargin: '200px 0px',
+            threshold: 0.1
+        });
+
+        lazyImages.forEach((img) => observer.observe(img));
+    } else {
+        lazyImages.forEach((img) => loadImage(img));
+    }
+}
+
 // Load and render projects (portfolio page)
 function loadProjects() {
     const container = document.getElementById('projectsContainer');
@@ -464,6 +500,7 @@ function loadProjects() {
     getFilteredProjectIndices().forEach((index) => {
         container.appendChild(createProjectElement(index));
     });
+    initProjectImageObserver();
 }
 
 const HOME_PROJECTS_INITIAL = 6;
