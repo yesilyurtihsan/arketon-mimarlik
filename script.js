@@ -13,15 +13,78 @@ let heroSlideshowTimer = null;
 let homeSlideshowStarted = false;
 const heroBgPreloads = [];
 
-function preloadHeroBgImages() {
-    if (heroBgPreloads.length > 0 || heroBgImages.length === 0) return;
+const loadingMessages = [
+    "Temeller atılıyor…",
+    "Planlar açılıyor…",
+    "Kesitler çiziliyor…",
+    "Işık içeri alınıyor…",
+    "Strüktür yükseliyor…"
+];
 
-    heroBgImages.forEach((src, index) => {
-        const url = resolveAssetUrl(src);
-        const img = new Image();
-        img.src = url;
-        heroBgPreloads[index] = img;
+let loadingMessageIndex = 0;
+let loadingInterval = null;
+
+function preloadHeroBgImages() {
+    if (heroBgPreloads.length > 0 || heroBgImages.length === 0) {
+        return Promise.resolve();
+    }
+
+    return new Promise((resolve) => {
+        let loadedCount = 0;
+
+        const checkComplete = () => {
+            loadedCount += 1;
+            if (loadedCount >= heroBgImages.length) {
+                resolve();
+            }
+        };
+
+        heroBgImages.forEach((src, index) => {
+            const url = resolveAssetUrl(src);
+            const img = new Image();
+            img.onload = checkComplete;
+            img.onerror = checkComplete;
+            img.src = url;
+            heroBgPreloads[index] = img;
+        });
     });
+}
+
+function updateLoadingMessage() {
+    const messageEl = document.getElementById('loadingMessage');
+    if (!messageEl) return;
+    messageEl.textContent = loadingMessages[loadingMessageIndex];
+}
+
+function startLoadingMessages() {
+    const overlay = document.getElementById('pageLoadingOverlay');
+    if (!overlay) return;
+
+    overlay.classList.remove('hidden');
+    loadingMessageIndex = 0;
+    updateLoadingMessage();
+
+    loadingInterval = setInterval(() => {
+        loadingMessageIndex = (loadingMessageIndex + 1) % loadingMessages.length;
+        updateLoadingMessage();
+    }, 1200);
+}
+
+function hideLoadingOverlay() {
+    const overlay = document.getElementById('pageLoadingOverlay');
+    if (!overlay) return;
+
+    overlay.classList.add('hidden');
+    overlay.setAttribute('aria-hidden', 'true');
+
+    if (loadingInterval) {
+        clearInterval(loadingInterval);
+        loadingInterval = null;
+    }
+
+    setTimeout(() => {
+        overlay.style.display = 'none';
+    }, 450);
 }
 
 function resolveAssetUrl(relativePath) {
@@ -64,9 +127,13 @@ function scheduleHomeSlideshowTick() {
 
 function startHeroSlideshow() {
     if (!document.getElementById('homeSlideshowBg') || heroBgImages.length === 0) return;
-    preloadHeroBgImages();
-    applyHomeBg(currentBgIndex);
-    scheduleHomeSlideshowTick();
+
+    startLoadingMessages();
+    preloadHeroBgImages().then(() => {
+        applyHomeBg(currentBgIndex);
+        scheduleHomeSlideshowTick();
+        hideLoadingOverlay();
+    });
 }
 
 function ensureHomeSlideshow() {
@@ -140,10 +207,26 @@ const projectsData = [
     },
     {
         name: "Esenler Shell Benzin İstasyonu",
-        category: "mimarlik-akaryakit",
+        category: "gorsel-akaryakit",
         images: [
             "images/YAPAY ZEKA YAPILAN/3-AKARYAKIT İSTASYONU/3-ESENLER SHELL BENZİN İSTASYONU/ChatGPT Image 26 Mar 2026 12_11_12.png",
             "images/YAPAY ZEKA YAPILAN/3-AKARYAKIT İSTASYONU/3-ESENLER SHELL BENZİN İSTASYONU/ChatGPT Image 26 Mar 2026 12_24_51.png"
+        ]
+    },
+    {
+        name: "Bungalov Tekirdağ 1",
+        category: "gorsel-bungalov",
+        images: [
+            "images/YAPAY ZEKA YAPILAN/6-BUNGALOW/18-BUNGALOW TEKİRDAĞ/ChatGPT Image 27 Mar 2026 14_15_22.png",
+            "images/YAPAY ZEKA YAPILAN/6-BUNGALOW/18-BUNGALOW TEKİRDAĞ/ChatGPT Image 27 Mar 2026 14_19_39.png"
+        ]
+    },
+    {
+        name: "Bungalov Tekirdağ 2",
+        category: "gorsel-bungalov",
+        images: [
+            "images/YAPAY ZEKA YAPILAN/6-BUNGALOW/19-BUNGALOW TEKİRDAĞ 2/ChatGPT Image 27 Mar 2026 13_19_40.png",
+            "images/YAPAY ZEKA YAPILAN/6-BUNGALOW/19-BUNGALOW TEKİRDAĞ 2/ChatGPT Image 27 Mar 2026 13_22_21.png"
         ]
     },
     {
@@ -206,6 +289,133 @@ const projectsData = [
             "images/YAPAY ZEKA YAPILAN/4-VİLLA/9-VİLLA 2/Y3.jpg",
             "images/YAPAY ZEKA YAPILAN/4-VİLLA/9-VİLLA 2/ChatGPT Image 27 Mar 2026 10_06_11.png",
             "images/YAPAY ZEKA YAPILAN/4-VİLLA/9-VİLLA 2/ChatGPT Image 27 Mar 2026 10_07_39.png"
+        ]
+    },
+    {
+        name: "Manisa Alaşehir Camii",
+        category: "gorsel-cami",
+        images: [
+            "images/YAPAY ZEKA YAPILAN 2/CAMİ/MANİSA ALAŞEHİR CAMİİ/ChatGPT Image 31 Mar 2026 21_38_15.png",
+            "images/YAPAY ZEKA YAPILAN 2/CAMİ/MANİSA ALAŞEHİR CAMİİ/ChatGPT Image 31 Mar 2026 21_41_15.png",
+            "images/YAPAY ZEKA YAPILAN 2/CAMİ/MANİSA ALAŞEHİR CAMİİ/ChatGPT Image 31 Mar 2026 21_43_30.png",
+            "images/YAPAY ZEKA YAPILAN 2/CAMİ/MANİSA ALAŞEHİR CAMİİ/ChatGPT Image 31 Mar 2026 21_45_07.png",
+            "images/YAPAY ZEKA YAPILAN 2/CAMİ/MANİSA ALAŞEHİR CAMİİ/ChatGPT Image 31 Mar 2026 22_00_36.png"
+        ]
+    },
+    {
+        name: "Antalya Havalimanı Petrol Ofisi",
+        category: "gorsel-istasyon",
+        images: [
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/ANTALYA HAVALİMANI PETROL OFİSİ/ChatGPT Image 31 Mar 2026 21_22_45.png",
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/ANTALYA HAVALİMANI PETROL OFİSİ/ChatGPT Image 31 Mar 2026 21_24_08.png",
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/ANTALYA HAVALİMANI PETROL OFİSİ/ChatGPT Image 31 Mar 2026 21_27_57.png",
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/ANTALYA HAVALİMANI PETROL OFİSİ/ChatGPT Image 31 Mar 2026 21_31_43.png"
+        ]
+    },
+    {
+        name: "Başakşehir Bayhas Petrol",
+        category: "gorsel-istasyon",
+        images: [
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/BAŞAKŞEHİR BAYHAS PETROL/ChatGPT Image 31 Mar 2026 19_08_36.png",
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/BAŞAKŞEHİR BAYHAS PETROL/ChatGPT Image 31 Mar 2026 19_10_10.png",
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/BAŞAKŞEHİR BAYHAS PETROL/ChatGPT Image 31 Mar 2026 19_11_27.png",
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/BAŞAKŞEHİR BAYHAS PETROL/ChatGPT Image 31 Mar 2026 19_15_45.png"
+        ]
+    },
+    {
+        name: "Esenyurt Silyon Shell Petrol",
+        category: "gorsel-istasyon",
+        images: [
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/ESENYURT SİLYON SHELL PETROL/ChatGPT Image 31 Mar 2026 19_22_45.png",
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/ESENYURT SİLYON SHELL PETROL/ChatGPT Image 31 Mar 2026 19_28_01.png",
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/ESENYURT SİLYON SHELL PETROL/ChatGPT Image 31 Mar 2026 19_28_58.png"
+        ]
+    },
+    {
+        name: "Malkara Total Enerji",
+        category: "gorsel-istasyon",
+        images: [
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/MALKARA TOTAL ENERJİ/ChatGPT Image 31 Mar 2026 16_27_14.png",
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/MALKARA TOTAL ENERJİ/ChatGPT Image 31 Mar 2026 16_31_57.png",
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/MALKARA TOTAL ENERJİ/ChatGPT Image 31 Mar 2026 16_37_09.png"
+        ]
+    },
+    {
+        name: "Tuzla İSSO Petrol",
+        category: "gorsel-istasyon",
+        images: [
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/TUZLA İSSO PETROL/ChatGPT Image 31 Mar 2026 16_59_04.png",
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/TUZLA İSSO PETROL/ChatGPT Image 31 Mar 2026 17_07_23.png",
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/TUZLA İSSO PETROL/ChatGPT Image 31 Mar 2026 17_11_28.png",
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/TUZLA İSSO PETROL/ChatGPT Image 31 Mar 2026 17_16_44.png",
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/TUZLA İSSO PETROL/ChatGPT Image 31 Mar 2026 17_23_34.png"
+        ]
+    },
+    {
+        name: "Tuzla Ziyade",
+        category: "gorsel-istasyon",
+        images: [
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/TUZLA ZİYADE/ChatGPT Image 31 Mar 2026 19_55_50.png",
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/TUZLA ZİYADE/ChatGPT Image 31 Mar 2026 20_01_01.png",
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/TUZLA ZİYADE/ChatGPT Image 31 Mar 2026 20_05_10.png",
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/TUZLA ZİYADE/ChatGPT Image 31 Mar 2026 20_07_42.png"
+        ]
+    },
+    {
+        name: "Vega",
+        category: "gorsel-istasyon",
+        images: [
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/VEGA/ChatGPT Image 31 Mar 2026 22_13_05.png",
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/VEGA/ChatGPT Image 31 Mar 2026 22_22_31.png",
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/VEGA/ChatGPT Image 31 Mar 2026 22_24_00.png",
+            "images/YAPAY ZEKA YAPILAN 2/İSTASYON/VEGA/ChatGPT Image 31 Mar 2026 22_25_53.png"
+        ]
+    },
+    {
+        name: "Arıcı Konut",
+        category: "gorsel-konut",
+        images: [
+            "images/YAPAY ZEKA YAPILAN 2/KONUT/ARICI/ChatGPT Image 31 Mar 2026 23_04_12.png",
+            "images/YAPAY ZEKA YAPILAN 2/KONUT/ARICI/ChatGPT Image 31 Mar 2026 23_04_25.png",
+            "images/YAPAY ZEKA YAPILAN 2/KONUT/ARICI/ChatGPT Image 31 Mar 2026 23_13_09.png"
+        ]
+    },
+    {
+        name: "Kadıköy Auto Showroom",
+        category: "gorsel-otogaleri",
+        images: [
+            "images/YAPAY ZEKA YAPILAN 2/OTO GALERİ/KADIKÖY AUTO SHOWROOM/ChatGPT Image 31 Mar 2026 16_06_59.png",
+            "images/YAPAY ZEKA YAPILAN 2/OTO GALERİ/KADIKÖY AUTO SHOWROOM/ChatGPT Image 31 Mar 2026 16_10_51.png",
+            "images/YAPAY ZEKA YAPILAN 2/OTO GALERİ/KADIKÖY AUTO SHOWROOM/ChatGPT Image 31 Mar 2026 16_15_55.png"
+        ]
+    },
+    {
+        name: "Tuğçe Ecem B Blok",
+        category: "gorsel-otogaleri",
+        images: [
+            "images/YAPAY ZEKA YAPILAN 2/OTO GALERİ/TUĞÇE ECEM B BLOK/ChatGPT Image 31 Mar 2026 22_47_21.png",
+            "images/YAPAY ZEKA YAPILAN 2/OTO GALERİ/TUĞÇE ECEM B BLOK/ChatGPT Image 31 Mar 2026 22_50_02.png",
+            "images/YAPAY ZEKA YAPILAN 2/OTO GALERİ/TUĞÇE ECEM B BLOK/ChatGPT Image 31 Mar 2026 22_52_05.png",
+            "images/YAPAY ZEKA YAPILAN 2/OTO GALERİ/TUĞÇE ECEM B BLOK/ChatGPT Image 31 Mar 2026 22_55_35.png"
+        ]
+    },
+    {
+        name: "Villa 12",
+        category: "gorsel-villa",
+        images: [
+            "images/YAPAY ZEKA YAPILAN 2/VİLLA/VİLLA 12/ChatGPT Image 31 Mar 2026 20_38_05.png",
+            "images/YAPAY ZEKA YAPILAN 2/VİLLA/VİLLA 12/ChatGPT Image 31 Mar 2026 20_40_59.png",
+            "images/YAPAY ZEKA YAPILAN 2/VİLLA/VİLLA 12/ChatGPT Image 31 Mar 2026 20_42_39.png",
+            "images/YAPAY ZEKA YAPILAN 2/VİLLA/VİLLA 12/ChatGPT Image 31 Mar 2026 20_46_01.png"
+        ]
+    },
+    {
+        name: "Villa 13",
+        category: "gorsel-villa",
+        images: [
+            "images/YAPAY ZEKA YAPILAN 2/VİLLA/VİLLA 13/ChatGPT Image 31 Mar 2026 20_22_25.png",
+            "images/YAPAY ZEKA YAPILAN 2/VİLLA/VİLLA 13/ChatGPT Image 31 Mar 2026 20_29_03.png",
+            "images/YAPAY ZEKA YAPILAN 2/VİLLA/VİLLA 13/ChatGPT Image 31 Mar 2026 20_30_15.png"
         ]
     }
 ];
