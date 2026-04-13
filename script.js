@@ -310,7 +310,7 @@ const projectsData = [
     },
     {
         name: "Antalya Havalimanı Petrol Ofisi",
-        category: "gorsel-istasyon",
+        category: "gorsel-akaryakit",
         images: [
             "images/YAPAY ZEKA YAPILAN 2/İSTASYON/ANTALYA HAVALİMANI PETROL OFİSİ/ChatGPT Image 31 Mar 2026 21_22_45.png",
             "images/YAPAY ZEKA YAPILAN 2/İSTASYON/ANTALYA HAVALİMANI PETROL OFİSİ/ChatGPT Image 31 Mar 2026 21_24_08.png",
@@ -320,7 +320,7 @@ const projectsData = [
     },
     {
         name: "Başakşehir Bayhas Petrol",
-        category: "gorsel-istasyon",
+        category: "gorsel-akaryakit",
         images: [
             "images/YAPAY ZEKA YAPILAN 2/İSTASYON/BAŞAKŞEHİR BAYHAS PETROL/ChatGPT Image 31 Mar 2026 19_08_36.png",
             "images/YAPAY ZEKA YAPILAN 2/İSTASYON/BAŞAKŞEHİR BAYHAS PETROL/ChatGPT Image 31 Mar 2026 19_10_10.png",
@@ -330,7 +330,7 @@ const projectsData = [
     },
     {
         name: "Esenyurt Silyon Shell Petrol",
-        category: "gorsel-istasyon",
+        category: "gorsel-akaryakit",
         images: [
             "images/YAPAY ZEKA YAPILAN 2/İSTASYON/ESENYURT SİLYON SHELL PETROL/ChatGPT Image 31 Mar 2026 19_22_45.png",
             "images/YAPAY ZEKA YAPILAN 2/İSTASYON/ESENYURT SİLYON SHELL PETROL/ChatGPT Image 31 Mar 2026 19_28_01.png",
@@ -339,7 +339,7 @@ const projectsData = [
     },
     {
         name: "Malkara Total Enerji",
-        category: "gorsel-istasyon",
+        category: "gorsel-akaryakit",
         images: [
             "images/YAPAY ZEKA YAPILAN 2/İSTASYON/MALKARA TOTAL ENERJİ/ChatGPT Image 31 Mar 2026 16_27_14.png",
             "images/YAPAY ZEKA YAPILAN 2/İSTASYON/MALKARA TOTAL ENERJİ/ChatGPT Image 31 Mar 2026 16_31_57.png",
@@ -348,7 +348,7 @@ const projectsData = [
     },
     {
         name: "Tuzla İSSO Petrol",
-        category: "gorsel-istasyon",
+        category: "gorsel-akaryakit",
         images: [
             "images/YAPAY ZEKA YAPILAN 2/İSTASYON/TUZLA İSSO PETROL/ChatGPT Image 31 Mar 2026 16_59_04.png",
             "images/YAPAY ZEKA YAPILAN 2/İSTASYON/TUZLA İSSO PETROL/ChatGPT Image 31 Mar 2026 17_07_23.png",
@@ -359,7 +359,7 @@ const projectsData = [
     },
     {
         name: "Tuzla Ziyade",
-        category: "gorsel-istasyon",
+        category: "gorsel-akaryakit",
         images: [
             "images/YAPAY ZEKA YAPILAN 2/İSTASYON/TUZLA ZİYADE/ChatGPT Image 31 Mar 2026 19_55_50.png",
             "images/YAPAY ZEKA YAPILAN 2/İSTASYON/TUZLA ZİYADE/ChatGPT Image 31 Mar 2026 20_01_01.png",
@@ -369,7 +369,7 @@ const projectsData = [
     },
     {
         name: "Vega",
-        category: "gorsel-istasyon",
+        category: "gorsel-akaryakit",
         images: [
             "images/YAPAY ZEKA YAPILAN 2/İSTASYON/VEGA/ChatGPT Image 31 Mar 2026 22_13_05.png",
             "images/YAPAY ZEKA YAPILAN 2/İSTASYON/VEGA/ChatGPT Image 31 Mar 2026 22_22_31.png",
