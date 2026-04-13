@@ -24,29 +24,35 @@ const loadingMessages = [
 let loadingMessageIndex = 0;
 let loadingInterval = null;
 
+function isMobile() {
+    return window.innerWidth < 768;
+}
+
 function preloadHeroBgImages() {
     if (heroBgPreloads.length > 0 || heroBgImages.length === 0) {
         return Promise.resolve();
     }
 
     return new Promise((resolve) => {
+        const numToPreload = isMobile() ? 2 : heroBgImages.length;
         let loadedCount = 0;
 
         const checkComplete = () => {
             loadedCount += 1;
-            if (loadedCount >= heroBgImages.length) {
+            if (loadedCount >= numToPreload) {
                 resolve();
             }
         };
 
-        heroBgImages.forEach((src, index) => {
+        for (let i = 0; i < numToPreload; i++) {
+            const src = heroBgImages[i];
             const url = resolveAssetUrl(src);
             const img = new Image();
             img.onload = checkComplete;
             img.onerror = checkComplete;
             img.src = url;
-            heroBgPreloads[index] = img;
-        });
+            heroBgPreloads[i] = img;
+        }
     });
 }
 
