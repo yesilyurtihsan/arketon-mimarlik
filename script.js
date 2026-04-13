@@ -539,6 +539,7 @@ function loadMoreHomeProjects() {
     }
     homeProjectsDisplayed = target;
     updateHomeLoadMoreButton();
+    initProjectImageObserver();
 }
 
 function initHomeProjects() {
