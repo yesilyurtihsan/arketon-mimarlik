@@ -197,14 +197,11 @@ aside.sidebar .menu summary {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #1a252f;
-    border-bottom: 2px solid #3498db;
     flex-shrink: 0;
 }
 
 .page-home .sidebar-icon {
-    background: rgba(15, 22, 28, 0.55);
-    border-bottom-color: rgba(52, 152, 219, 0.85);
+    /* Removed background and border-bottom for consistency */
 }
 
 .firm-icon {
@@ -282,6 +279,36 @@ aside.sidebar .menu summary {
 
 .menu details[open] > summary::after {
     transform: rotate(90deg);
+}
+
+.sidebar-social {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: auto;
+    padding: 1rem 0 1.25rem;
+}
+
+.sidebar-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.sidebar-social a:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.sidebar-social img {
+    width: 1.2rem;
+    height: 1.2rem;
+    object-fit: contain;
 }
 
 .menu > li > a,
