@@ -808,6 +808,20 @@ footer {
     .project h3 {
         font-size: 1rem;
     }
+
+    .container {
+        flex-direction: column;
+    }
+
+    aside.sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
 }
 
 @media (max-width: 480px) {
