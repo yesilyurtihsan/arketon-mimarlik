@@ -55,49 +55,17 @@ h1, h2, h3, h4 {
     background-repeat: no-repeat;
 }
 
-.page-loading-overlay {
-    position: fixed;
+.home-fullscreen-bg__shade {
+    position: absolute;
     inset: 0;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(180deg, #0d0f12 0%, #12161f 100%);
-    color: #f5f7fb;
-    text-align: center;
-    padding: 1.5rem;
-    transition: opacity 0.4s ease;
-}
-
-.page-loading-overlay.hidden {
-    opacity: 0;
+    z-index: 1;
+    background: linear-gradient(
+        105deg,
+        rgba(0, 0, 0, 0.35) 0%,
+        rgba(0, 0, 0, 0.12) 50%,
+        rgba(0, 0, 0, 0.18) 100%
+    );
     pointer-events: none;
-}
-
-.page-loading-content {
-    max-width: 420px;
-}
-
-.loading-spinner {
-    width: 4rem;
-    height: 4rem;
-    margin: 0 auto 1.25rem;
-    border-radius: 50%;
-    border: 4px solid rgba(255, 255, 255, 0.18);
-    border-top-color: rgba(255, 255, 255, 0.9);
-    animation: spin 1.1s linear infinite;
-}
-
-#loadingMessage {
-    font-size: 1.15rem;
-    line-height: 1.6;
-    letter-spacing: 0.01em;
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
 }
 
 .home-bottom-actions {
@@ -229,11 +197,14 @@ aside.sidebar .menu summary {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #1a252f;
+    border-bottom: 2px solid #3498db;
     flex-shrink: 0;
 }
 
 .page-home .sidebar-icon {
-    /* Removed background and border-bottom for consistency */
+    background: rgba(15, 22, 28, 0.55);
+    border-bottom-color: rgba(52, 152, 219, 0.85);
 }
 
 .firm-icon {
@@ -799,42 +770,5 @@ footer {
 
     .projects, .team, .contact-info {
         grid-template-columns: 1fr;
-    }
-
-    .projects {
-        gap: 1rem;
-    }
-
-    .project h3 {
-        font-size: 1rem;
-    }
-
-    .container {
-        flex-direction: column;
-    }
-
-    aside.sidebar {
-        position: static;
-        width: 100%;
-        height: auto;
-    }
-
-    .main-content {
-        margin-left: 0;
-    }
-}
-
-@media (max-width: 480px) {
-    .projects {
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-        gap: 0.5rem;
-    }
-
-    .project h3 {
-        font-size: 0.9rem;
-    }
-
-    nav a {
-        font-size: 0.9rem;
     }
 }
