@@ -1,16 +1,23 @@
 // Hero Section Slideshow
 const heroBgImages = [
-    "images/YAPAY ZEKA YAPILAN/1-KONUT/15-İSTANBUL BAĞCILAR HARUN YILDIZ KONUT/ChatGPT Image 27 Mar 2026 14_39_16.png",
-    "images/YAPAY ZEKA YAPILAN/4-VİLLA/1-İZMİR URLA ER YAMAN EVLERİ/ChatGPT Image 27 Mar 2026 16_10_34.png",
-    "images/YAPAY ZEKA YAPILAN/5-SİTE/7-EMLAK KONUT ÜMRANİYE/ChatGPT Image 27 Mar 2026 10_35_19.png",
-    "images/YAPAY ZEKA YAPILAN/6-BUNGALOW/18-BUNGALOW TEKİRDAĞ/ChatGPT Image 27 Mar 2026 14_15_22.png",
-    "images/YAPAY ZEKA YAPILAN/ChatGPT Image 26 Mar 2026 16_07_12.png",
-    "images/YAPAY ZEKA YAPILAN/ChatGPT Image 27 Mar 2026 10_24_16.png"
+    "images/ana_ekran_döngüsü/1.png",
+    "images/ana_ekran_döngüsü/2.png",
+    "images/ana_ekran_döngüsü/3.png",
+    "images/ana_ekran_döngüsü/4.png",
+    "images/ana_ekran_döngüsü/5.png",
+    "images/ana_ekran_döngüsü/6.jpg",
+    "images/ana_ekran_döngüsü/7.png",
+    "images/ana_ekran_döngüsü/8.png",
+    "images/ana_ekran_döngüsü/9.png",
+    "images/ana_ekran_döngüsü/10.png",
+    "images/ana_ekran_döngüsü/11.png",
+    "images/ana_ekran_döngüsü/12.png"
 ];
 
 let currentBgIndex = 0;
 let heroSlideshowTimer = null;
 let homeSlideshowStarted = false;
+let activeHomeBgPane = 0;
 const heroBgPreloads = [];
 
 const loadingMessages = [
@@ -104,15 +111,23 @@ function resolveAssetUrl(relativePath) {
 }
 
 function applyHomeBg(index) {
-    const el = document.getElementById('homeSlideshowBg');
-    if (!el) return;
+    const container = document.getElementById('homeSlideshowBg');
+    if (!container) return;
+    const panes = container.querySelectorAll('.home-fullscreen-bg__pane');
     const n = heroBgImages.length;
     currentBgIndex = ((index % n) + n) % n;
     const url = resolveAssetUrl(heroBgImages[currentBgIndex]);
-    el.style.backgroundImage = 'url(' + JSON.stringify(url) + ')';
-    el.style.backgroundSize = 'cover';
-    el.style.backgroundPosition = 'center';
-    el.style.backgroundRepeat = 'no-repeat';
+
+    if (panes.length === 2) {
+        const nextPane = panes[1 - activeHomeBgPane];
+        nextPane.style.backgroundImage = 'url(' + JSON.stringify(url) + ')';
+        nextPane.classList.add('active');
+        panes[activeHomeBgPane].classList.remove('active');
+        activeHomeBgPane = 1 - activeHomeBgPane;
+        return;
+    }
+
+    container.style.backgroundImage = 'url(' + JSON.stringify(url) + ')';
 }
 
 function clearHomeSlideshowTimer() {
