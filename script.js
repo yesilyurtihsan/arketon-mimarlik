@@ -25,7 +25,11 @@ const loadingMessages = [
     "Planlar açılıyor…",
     "Kesitler çiziliyor…",
     "Işık içeri alınıyor…",
-    "Strüktür yükseliyor…"
+    "Strüktür yükseliyor…",
+    "Şantiye hazırlanıyor…",
+    "Vinçler çalışıyor…",
+    "Son dokunuşlar yapılıyor…",
+    "Cephe tamamlanıyor…"
 ];
 
 let loadingMessageIndex = 0;
@@ -73,7 +77,9 @@ function startLoadingMessages() {
     const overlay = document.getElementById('pageLoadingOverlay');
     if (!overlay) return;
 
+    overlay.style.display = 'flex';
     overlay.classList.remove('hidden');
+    overlay.removeAttribute('aria-hidden');
     loadingMessageIndex = 0;
     updateLoadingMessage();
 
@@ -150,10 +156,14 @@ function startHeroSlideshow() {
     if (!document.getElementById('homeSlideshowBg') || heroBgImages.length === 0) return;
 
     startLoadingMessages();
-    preloadHeroBgImages().then(() => {
-        applyHomeBg(currentBgIndex);
-        scheduleHomeSlideshowTick();
-        hideLoadingOverlay();
+    requestAnimationFrame(() => {
+        setTimeout(() => {
+            preloadHeroBgImages().then(() => {
+                applyHomeBg(currentBgIndex);
+                scheduleHomeSlideshowTick();
+                hideLoadingOverlay();
+            });
+        }, 0);
     });
 }
 
