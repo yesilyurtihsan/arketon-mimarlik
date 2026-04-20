@@ -1,11 +1,26 @@
 // Hero Section Slideshow
+// const heroBgImages = [
+//     "images/YAPAY ZEKA YAPILAN/1-KONUT/15-İSTANBUL BAĞCILAR HARUN YILDIZ KONUT/ChatGPT Image 27 Mar 2026 14_39_16.png",
+//     "images/YAPAY ZEKA YAPILAN/4-VİLLA/1-İZMİR URLA ER YAMAN EVLERİ/ChatGPT Image 27 Mar 2026 16_10_34.png",
+//     "images/YAPAY ZEKA YAPILAN/5-SİTE/7-EMLAK KONUT ÜMRANİYE/ChatGPT Image 27 Mar 2026 10_35_19.png",
+//     "images/YAPAY ZEKA YAPILAN/6-BUNGALOW/18-BUNGALOW TEKİRDAĞ/ChatGPT Image 27 Mar 2026 14_15_22.png",
+//     "images/YAPAY ZEKA YAPILAN/ChatGPT Image 26 Mar 2026 16_07_12.png",
+//     "images/YAPAY ZEKA YAPILAN/ChatGPT Image 27 Mar 2026 10_24_16.png"
+// ];
+
 const heroBgImages = [
-    "images/YAPAY ZEKA YAPILAN/1-KONUT/15-İSTANBUL BAĞCILAR HARUN YILDIZ KONUT/ChatGPT Image 27 Mar 2026 14_39_16.png",
-    "images/YAPAY ZEKA YAPILAN/4-VİLLA/1-İZMİR URLA ER YAMAN EVLERİ/ChatGPT Image 27 Mar 2026 16_10_34.png",
-    "images/YAPAY ZEKA YAPILAN/5-SİTE/7-EMLAK KONUT ÜMRANİYE/ChatGPT Image 27 Mar 2026 10_35_19.png",
-    "images/YAPAY ZEKA YAPILAN/6-BUNGALOW/18-BUNGALOW TEKİRDAĞ/ChatGPT Image 27 Mar 2026 14_15_22.png",
-    "images/YAPAY ZEKA YAPILAN/ChatGPT Image 26 Mar 2026 16_07_12.png",
-    "images/YAPAY ZEKA YAPILAN/ChatGPT Image 27 Mar 2026 10_24_16.png"
+    "images/ana_ekran_döngüsü/1.png",
+    "images/ana_ekran_döngüsü/2.png",
+    "images/ana_ekran_döngüsü/3.png",
+    "images/ana_ekran_döngüsü/4.png",
+    "images/ana_ekran_döngüsü/5.png",
+    "images/ana_ekran_döngüsü/6.png",
+    "images/ana_ekran_döngüsü/7.png",
+    "images/ana_ekran_döngüsü/8.png",
+    "images/ana_ekran_döngüsü/9.png",
+    "images/ana_ekran_döngüsü/10.png",
+    "images/ana_ekran_döngüsü/11.png",
+    "images/ana_ekran_döngüsü/12.png"
 ];
 
 let currentBgIndex = 0;
