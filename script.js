@@ -423,6 +423,56 @@ const projectsData = [
             "images/YAPAY ZEKA YAPILAN 2/VİLLA/VİLLA 13/ChatGPT Image 31 Mar 2026 20_29_03.png",
             "images/YAPAY ZEKA YAPILAN 2/VİLLA/VİLLA 13/ChatGPT Image 31 Mar 2026 20_30_15.png"
         ]
+    },
+    {
+        name: "İzmir Karşıyaka Rezidans",
+        category: "gorsel-site",
+        images: [
+            "images/YAPAY ZEKA YAPILAN/5-SİTE/22-İZMİR KARŞIYAKA REZİDANS/ChatGPT Image 27 Mar 2026 15_07_01.png",
+            "images/YAPAY ZEKA YAPILAN/5-SİTE/22-İZMİR KARŞIYAKA REZİDANS/ChatGPT Image 27 Mar 2026 15_07_03.png",
+            "images/YAPAY ZEKA YAPILAN/5-SİTE/22-İZMİR KARŞIYAKA REZİDANS/ChatGPT Image 27 Mar 2026 15_11_28.png",
+            "images/YAPAY ZEKA YAPILAN/5-SİTE/22-İZMİR KARŞIYAKA REZİDANS/ChatGPT Image 27 Mar 2026 15_17_54.png",
+            "images/YAPAY ZEKA YAPILAN/5-SİTE/22-İZMİR KARŞIYAKA REZİDANS/ChatGPT Image 27 Mar 2026 15_31_06.png"
+        ]
+    },
+    {
+        name: "Sultangazı Kentsel Dönüşüm",
+        category: "gorsel-site",
+        images: [
+            "images/YAPAY ZEKA YAPILAN/5-SİTE/23-SULTANGAZİ KENTSEL DÖNÜŞÜM/ChatGPT Image 30 Mar 2026 21_10_30.png",
+            "images/YAPAY ZEKA YAPILAN/5-SİTE/23-SULTANGAZİ KENTSEL DÖNÜŞÜM/ChatGPT Image 30 Mar 2026 21_18_40.png",
+            "images/YAPAY ZEKA YAPILAN/5-SİTE/23-SULTANGAZİ KENTSEL DÖNÜŞÜM/ChatGPT Image 30 Mar 2026 22_14_33.png"
+        ]
+    },
+    {
+        name: "Emlak Konut Küçük Çekmece",
+        category: "gorsel-site",
+        images: [
+            "images/YAPAY ZEKA YAPILAN/5-SİTE/5-EMLAK KONUT KÜÇÜK ÇEKMECE/ChatGPT Image 26 Mar 2026 13_48_35.png",
+            "images/YAPAY ZEKA YAPILAN/5-SİTE/5-EMLAK KONUT KÜÇÜK ÇEKMECE/ChatGPT Image 26 Mar 2026 13_59_58.png",
+            "images/YAPAY ZEKA YAPILAN/5-SİTE/5-EMLAK KONUT KÜÇÜK ÇEKMECE/4.jpg",
+            "images/YAPAY ZEKA YAPILAN/5-SİTE/5-EMLAK KONUT KÜÇÜK ÇEKMECE/y1_14 - Photo.jpg"
+        ]
+    },
+    {
+        name: "Emlak Konut Maraş 25 Bina",
+        category: "gorsel-site",
+        images: [
+            "images/YAPAY ZEKA YAPILAN/5-SİTE/6-EMLAK KONUT MARAŞ 25 BİNA/ChatGPT Image 26 Mar 2026 14_35_30.png",
+            "images/YAPAY ZEKA YAPILAN/5-SİTE/6-EMLAK KONUT MARAŞ 25 BİNA/ChatGPT Image 26 Mar 2026 14_40_36.png",
+            "images/YAPAY ZEKA YAPILAN/5-SİTE/6-EMLAK KONUT MARAŞ 25 BİNA/ChatGPT Image 26 Mar 2026 14_53_51.png",
+            "images/YAPAY ZEKA YAPILAN/5-SİTE/6-EMLAK KONUT MARAŞ 25 BİNA/ChatGPT Image 26 Mar 2026 15_18_48.png"
+        ]
+    },
+    {
+        name: "Emlak Konut Ümraniye",
+        category: "gorsel-site",
+        images: [
+            "images/YAPAY ZEKA YAPILAN/5-SİTE/7-EMLAK KONUT ÜMRANİYE/ChatGPT Image 27 Mar 2026 10_35_19.png",
+            "images/YAPAY ZEKA YAPILAN/5-SİTE/7-EMLAK KONUT ÜMRANİYE/ChatGPT Image 27 Mar 2026 10_36_48.png",
+            "images/YAPAY ZEKA YAPILAN/5-SİTE/7-EMLAK KONUT ÜMRANİYE/ChatGPT Image 27 Mar 2026 11_11_05.png",
+            "images/YAPAY ZEKA YAPILAN/5-SİTE/7-EMLAK KONUT ÜMRANİYE/ChatGPT Image 27 Mar 2026 11_14_53.png"
+        ]
     }
 ];
 
