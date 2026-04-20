@@ -252,7 +252,7 @@ const projectsData = [
     },
     {
         name: "Said Bey Restoran",
-        category: "mimarlik-ticari",
+        category: "gorsel-ticaret",
         images: [
             "images/YAPAY ZEKA YAPILAN/16-SAİD BEY RESTORAN/1.png",
             "images/YAPAY ZEKA YAPILAN/16-SAİD BEY RESTORAN/2.jpg",
@@ -262,7 +262,7 @@ const projectsData = [
     },
     {
         name: "Kuran Kursu",
-        category: "mimarlik-ticari",
+        category: "gorsel-diniyapilar",
         images: [
             "images/YAPAY ZEKA YAPILAN/2-KURAN KURSU/WhatsApp Image 2026-02-19 at 20.01.36.jpeg",
             "images/YAPAY ZEKA YAPILAN/2-KURAN KURSU/WhatsApp Image 2026-02-19 at 20.11.38.jpeg",
@@ -367,7 +367,7 @@ const projectsData = [
     },
     {
         name: "Manisa Alaşehir Camii",
-        category: "gorsel-cami",
+        category: "gorsel-diniyapilar",
         images: [
             "images/YAPAY ZEKA YAPILAN 2/CAMİ/MANİSA ALAŞEHİR CAMİİ/ChatGPT Image 31 Mar 2026 21_38_15.png",
             "images/YAPAY ZEKA YAPILAN 2/CAMİ/MANİSA ALAŞEHİR CAMİİ/ChatGPT Image 31 Mar 2026 21_41_15.png",
