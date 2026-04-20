@@ -667,6 +667,11 @@ body.page-home .home-projects-section {
     margin: 2rem 0;
 }
 
+.team h3 {
+    grid-column: 1 / -1;
+    margin: 0 0 1rem;
+}
+
 .member {
     text-align: center;
 }
