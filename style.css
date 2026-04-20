@@ -753,6 +753,66 @@ footer {
     margin-top: 2rem;
 }
 
+/* Loading Overlay Styles */
+.page-loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 15, 18, 0.95);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: opacity 0.45s ease-out, visibility 0.45s ease-out;
+    opacity: 1;
+    visibility: visible;
+}
+
+.page-loading-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.page-loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.loading-spinner {
+    width: 3rem;
+    height: 3rem;
+    border: 3px solid rgba(52, 152, 219, 0.2);
+    border-top-color: #3498db;
+    border-right-color: #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+#loadingMessage {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    min-height: 1.5rem;
+    max-width: 200px;
+    text-align: center;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 /* Responsive Tasarım */
 @media (max-width: 768px) {
     nav {
