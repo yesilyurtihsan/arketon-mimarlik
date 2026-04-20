@@ -807,11 +807,50 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Navigation active state
     const currentPage = window.location.pathname.split('/').pop();
-    const navLinks = document.querySelectorAll('.nav-links a');
+    const urlParams = new URLSearchParams(window.location.search);
+    const currentFilter = urlParams.get('filter');
+    const navLinks = document.querySelectorAll('.menu a');
 
     navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPage || link.getAttribute('href') === '') {
+        const href = link.getAttribute('href');
+        const linkFilter = href.includes('?filter=') ? href.split('?filter=')[1] : null;
+
+        // Check if this is the current page
+        if (href === currentPage || (href === '' && currentPage === '')) {
             link.classList.add('active');
+        }
+
+        // Check if this filter matches the current filter
+        if (currentFilter && linkFilter === currentFilter) {
+            link.classList.add('active');
+        }
+    });
+
+    // Keep subtopics open based on current filter or page
+    const detailsElements = document.querySelectorAll('.menu details');
+
+    detailsElements.forEach(details => {
+        const links = details.querySelectorAll('a');
+
+        // Check if any link in this details section matches the current filter or page
+        let shouldOpen = false;
+        links.forEach(link => {
+            const href = link.getAttribute('href');
+            const linkFilter = href.includes('?filter=') ? href.split('?filter=')[1] : null;
+
+            // Check for filter match
+            if (currentFilter && linkFilter === currentFilter) {
+                shouldOpen = true;
+            }
+
+            // Check for page match
+            if (href === currentPage || (href === '' && currentPage === '')) {
+                shouldOpen = true;
+            }
+        });
+
+        if (shouldOpen) {
+            details.setAttribute('open', '');
         }
     });
 });

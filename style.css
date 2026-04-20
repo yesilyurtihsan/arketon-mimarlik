@@ -291,6 +291,13 @@ aside.sidebar .menu summary {
     background-color: #34495e;
 }
 
+/* Active summary styling when child is active */
+.menu details[open] > summary {
+    background-color: rgba(52, 152, 219, 0.15);
+    color: #3498db;
+    font-weight: 600;
+}
+
 /* Hide default marker and add custom one on the right */
 .menu details > summary::marker {
     content: '';
@@ -366,6 +373,8 @@ nav {
 
 .nav-links li {
     margin-left: 2rem;
+    position: relative;
+}
 }
 
 .nav-links a {
@@ -377,6 +386,15 @@ nav {
 .nav-links a:hover,
 .nav-links a.active {
     color: #3498db;
+    background-color: rgba(52, 152, 219, 0.1);
+    font-weight: 600;
+}
+
+/* Menu active states */
+.menu a.active {
+    color: #3498db;
+    background-color: rgba(52, 152, 219, 0.1);
+    font-weight: 600;
 }
 
 .main-content {
