@@ -572,6 +572,7 @@ function createProjectElement(index) {
                      alt="${project.name}" 
                      class="project-image lazyload" 
                      loading="lazy" 
+                     decoding="async" 
                      data-project-index="${index}">
             </div>
             <h3>${project.name}</h3>
