@@ -12,6 +12,7 @@ let currentBgIndex = 0;
 let heroSlideshowTimer = null;
 let homeSlideshowStarted = false;
 const heroBgPreloads = [];
+let isTransitioning = false;
 
 const loadingMessages = [
     "Temeller atılıyor…",
@@ -106,13 +107,64 @@ function resolveAssetUrl(relativePath) {
 function applyHomeBg(index) {
     const el = document.getElementById('homeSlideshowBg');
     if (!el) return;
+    
     const n = heroBgImages.length;
     currentBgIndex = ((index % n) + n) % n;
     const url = resolveAssetUrl(heroBgImages[currentBgIndex]);
-    el.style.backgroundImage = 'url(' + JSON.stringify(url) + ')';
-    el.style.backgroundSize = 'cover';
-    el.style.backgroundPosition = 'center';
-    el.style.backgroundRepeat = 'no-repeat';
+    
+    // Use a crossfade effect with two layers
+    const bgLayer = el.querySelector('.bg-layer-main') || createBgLayer(el, 'main');
+    const bgLayerNext = el.querySelector('.bg-layer-next') || createBgLayer(el, 'next');
+    
+    // Check if this is the first image load (bgLayer has no image yet)
+    const isFirstLoad = !bgLayer.style.backgroundImage || bgLayer.style.backgroundImage === '';
+    
+    if (isFirstLoad) {
+        // First load: set image directly on main layer without transition
+        bgLayer.style.backgroundImage = 'url(' + JSON.stringify(url) + ')';
+        bgLayer.style.opacity = '1';
+        // Add Ken Burns animation
+        bgLayer.classList.add('active');
+    } else {
+        // Subsequent loads: crossfade transition
+        // Remove Ken Burns animation from main layer
+        bgLayer.classList.remove('active');
+        
+        // Set the new image on the next layer
+        bgLayerNext.style.backgroundImage = 'url(' + JSON.stringify(url) + ')';
+        
+        // Force reflow to ensure smooth transition
+        void bgLayerNext.offsetHeight;
+        
+        // Crossfade: fade out main, fade in next
+        bgLayerNext.style.transition = 'opacity 1.2s cubic-bezier(0.4, 0.0, 0.2, 1)';
+        bgLayer.style.transition = 'opacity 1.2s cubic-bezier(0.4, 0.0, 0.2, 1)';
+        bgLayer.style.opacity = '0';
+        bgLayerNext.style.opacity = '1';
+        
+        // After transition completes, swap layers
+        setTimeout(() => {
+            bgLayer.style.transition = 'none';
+            bgLayerNext.style.transition = 'none';
+            bgLayer.style.backgroundImage = 'url(' + JSON.stringify(url) + ')';
+            bgLayer.style.opacity = '1';
+            bgLayerNext.style.opacity = '0';
+            // Add Ken Burns animation to the now-visible layer
+            bgLayer.classList.add('active');
+        }, 1200);
+    }
+}
+
+function createBgLayer(container, type) {
+    const layer = document.createElement('div');
+    layer.className = `bg-layer bg-layer-${type}`;
+    layer.style.backgroundSize = 'cover';
+    layer.style.backgroundPosition = 'center';
+    layer.style.backgroundRepeat = 'no-repeat';
+    layer.style.opacity = '0';
+    
+    container.appendChild(layer);
+    return layer;
 }
 
 function clearHomeSlideshowTimer() {
@@ -127,8 +179,9 @@ function scheduleHomeSlideshowTick() {
     if (!document.getElementById('homeSlideshowBg')) return;
     heroSlideshowTimer = setTimeout(function homeSlideTick() {
         applyHomeBg(currentBgIndex + 1);
-        heroSlideshowTimer = setTimeout(homeSlideTick, 5000);
-    }, 5000);
+        // 6s Ken Burns + 1.2s crossfade + 0.8s buffer = 8s per slide
+        heroSlideshowTimer = setTimeout(homeSlideTick, 8000);
+    }, 8000);
 }
 
 function startHeroSlideshow() {

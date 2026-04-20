@@ -177,11 +177,33 @@ aside.sidebar .menu summary {
     position: fixed;
     inset: 0;
     z-index: -2;
+    overflow: hidden;
+    background-color: #0d0f12;
+}
+
+.bg-layer {
+    position: absolute;
+    inset: 0;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    transition: background-image 0.8s ease-in-out, opacity 0.6s ease-in-out;
-    will-change: background-image;
+    opacity: 0;
+    transition: none;
+    transform: scale(1.02);
+    will-change: opacity, transform;
+}
+
+.bg-layer.active {
+    animation: kenBurns 6s ease-out forwards;
+}
+
+@keyframes kenBurns {
+    0% {
+        transform: scale(1.02);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .home-fullscreen-bg__shade {
@@ -189,6 +211,7 @@ aside.sidebar .menu summary {
     inset: 0;
     background: linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.42) 100%);
     pointer-events: none;
+    z-index: 1;
 }
 .sidebar-icon {
     width: 100%;
