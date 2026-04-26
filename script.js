@@ -9,18 +9,18 @@
 // ];
 
 const heroBgImages = [
-    "images/ana_ekran_döngüsü/1.png",
-    "images/ana_ekran_döngüsü/2.png",
-    "images/ana_ekran_döngüsü/3.png",
+    // "images/ana_ekran_döngüsü/1.png",
+    // "images/ana_ekran_döngüsü/2.png",
     "images/ana_ekran_döngüsü/4.png",
+    "images/ana_ekran_döngüsü/3.png",
     "images/ana_ekran_döngüsü/5.png",
-    "images/ana_ekran_döngüsü/6.png",
-    "images/ana_ekran_döngüsü/7.png",
+    // "images/ana_ekran_döngüsü/6.png",
+    // "images/ana_ekran_döngüsü/7.png",
     "images/ana_ekran_döngüsü/8.png",
-    "images/ana_ekran_döngüsü/9.png",
+    // "images/ana_ekran_döngüsü/9.png",
     "images/ana_ekran_döngüsü/10.png",
     "images/ana_ekran_döngüsü/11.png",
-    "images/ana_ekran_döngüsü/12.png"
+    // "images/ana_ekran_döngüsü/12.png"
 ];
 
 let currentBgIndex = 0;
