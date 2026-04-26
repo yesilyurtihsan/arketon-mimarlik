@@ -541,6 +541,19 @@ const projectsData = [
             "images/YAPAY ZEKA YAPILAN/5-SİTE/7-EMLAK KONUT ÜMRANİYE/ChatGPT Image 27 Mar 2026 11_11_05.png",
             "images/YAPAY ZEKA YAPILAN/5-SİTE/7-EMLAK KONUT ÜMRANİYE/ChatGPT Image 27 Mar 2026 11_14_53.png"
         ]
+    },
+    {
+        name: "Ümraniye Konut",
+        category: "mimarlik-konut",
+        images: [
+            "images/mimarlik/umraniye/1+1 TİP A.jpg",
+            "images/mimarlik/umraniye/1+1 TİP B.jpg",
+            "images/mimarlik/umraniye/2+1 KÖŞE.jpg",
+            "images/mimarlik/umraniye/3+1 KÖŞE.jpg",
+            "images/mimarlik/umraniye/A BLOK NK.jpg",
+            "images/mimarlik/umraniye/B BLOK NK.jpg",
+            "images/mimarlik/umraniye/C BLOK NK.jpg"
+        ]
     }
 ];
 
