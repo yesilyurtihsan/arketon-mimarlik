@@ -734,6 +734,52 @@ body.page-home .home-projects-section {
     text-decoration: underline;
 }
 
+.reference-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.reference-card {
+    border: 1px solid #eee;
+    border-radius: 16px;
+    padding: 1.5rem;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 230px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+}
+
+.reference-logo {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.reference-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.reference-info h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.05rem;
+}
+
+.reference-info p {
+    margin: 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
 /* İletişim */
 .contact-info {
     display: grid;
