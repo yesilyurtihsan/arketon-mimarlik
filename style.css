@@ -570,6 +570,8 @@ body.page-home .home-projects-section {
     color: #666;
 }
 
+
+
 /* Modal Styles */
 .modal {
     display: none;
@@ -876,5 +878,43 @@ footer {
 
     .projects, .team, .contact-info {
         grid-template-columns: 1fr;
+    }
+
+
+    .projects {
+        gap: 1rem;
+    }
+
+    .project h3 {
+        font-size: 1rem;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    aside.sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 0.5rem;
+    }
+
+    .project h3 {
+        font-size: 0.9rem;
+    }
+
+    nav a {
+        font-size: 0.9rem;
     }
 }
