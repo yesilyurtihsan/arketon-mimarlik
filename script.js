@@ -554,6 +554,95 @@ const projectsData = [
             "images/mimarlik/umraniye/B BLOK NK.jpg",
             "images/mimarlik/umraniye/C BLOK NK.jpg"
         ]
+    },
+    {
+        name: "1491780 EKB",
+        category: "enerji",
+        images: ["images/ekb/1491780-0001.jpg"]
+    },
+    {
+        name: "Amerikan Hastanesi EKB",
+        category: "enerji",
+        images: ["images/ekb/AMERİKAN HASTANESİ EKB-0001.jpg"]
+    },
+    {
+        name: "Arketon EKB",
+        category: "enerji",
+        images: ["images/ekb/Arketon Ekb2.jpg"]
+    },
+    {
+        name: "Ersoy Bina Yatırım EKB",
+        category: "enerji",
+        images: ["images/ekb/ERSOY BİNA YAT. EKB ÖN SONUÇ-0001.jpg"]
+    },
+    {
+        name: "Medeniyет EKB Güneş Enerjili",
+        category: "enerji",
+        images: ["images/ekb/MEDENİYET EKB GÜNEŞ ENERJİLİ.jpg"]
+    },
+    {
+        name: "Okul EKB",
+        category: "enerji",
+        images: ["images/ekb/OKUL EKB İMZASIZ-0001.jpg"]
+    },
+    {
+        name: "Onur Petrol B Blok EKB",
+        category: "enerji",
+        images: ["images/ekb/ONUR PETROL b blok-0001.jpg"]
+    },
+    {
+        name: "OPET Aygaz Ankara EKB",
+        category: "enerji",
+        images: ["images/ekb/OPET AYGAZ ANKARA EKB-0001.jpg"]
+    },
+    {
+        name: "TSK AVM EKB",
+        category: "enerji",
+        images: ["images/ekb/tsk avm ekb-0001.jpg"]
+    },
+    {
+        name: "İDL Otel EKB",
+        category: "enerji",
+        images: ["images/ekb/İDL OTEL EKB-0001.jpg"]
+    },
+    {
+        name: "Bakırköy Konut",
+        category: "mimarlik-konut",
+        images: [
+            "images/mimarlik/bakirkoy/1.bodrum kat.jpg",
+            "images/mimarlik/bakirkoy/normal kat.jpg",
+            "images/mimarlik/bakirkoy/zemin kat.jpg"
+        ]
+    },
+    {
+        name: "Akustik Proje 1",
+        category: "akustik",
+        images: ["images/akustik/1.jpg"]
+    },
+    {
+        name: "Akustik Proje 2",
+        category: "akustik",
+        images: ["images/akustik/2.jpg"]
+    },
+    {
+        name: "Akustik Proje 3",
+        category: "akustik",
+        images: ["images/akustik/3.png"]
+    },
+    {
+        name: "Akustik Proje 4",
+        category: "akustik",
+        images: ["images/akustik/4.jpg"]
+    },
+    {
+        name: "Akustik Proje 5",
+        category: "akustik",
+        images: ["images/akustik/6.jpg"]
+    },
+    {
+        name: "Akustik Proje 6",
+        category: "akustik",
+        images: ["images/akustik/7.jpg"]
     }
 ];
 
