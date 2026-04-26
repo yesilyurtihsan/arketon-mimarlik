@@ -142,6 +142,13 @@ function applyHomeBg(index) {
         bgLayer.classList.add('active');
     } else {
         // Subsequent loads: crossfade transition
+        if (isTransitioning) {
+            return;
+        }
+
+        isTransitioning = true;
+        updateHeroNavButtons(true);
+
         // Remove Ken Burns animation from main layer
         bgLayer.classList.remove('active');
         
@@ -166,6 +173,8 @@ function applyHomeBg(index) {
             bgLayerNext.style.opacity = '0';
             // Add Ken Burns animation to the now-visible layer
             bgLayer.classList.add('active');
+            isTransitioning = false;
+            updateHeroNavButtons(false);
         }, 1200);
     }
 }
@@ -180,6 +189,20 @@ function createBgLayer(container, type) {
     
     container.appendChild(layer);
     return layer;
+}
+
+function updateHeroNavButtons(disabled) {
+    const prevBtn = document.getElementById('homeHeroPrevBtn');
+    const nextBtn = document.getElementById('homeHeroNextBtn');
+
+    if (prevBtn) {
+        prevBtn.disabled = disabled;
+        prevBtn.setAttribute('aria-disabled', disabled ? 'true' : 'false');
+    }
+    if (nextBtn) {
+        nextBtn.disabled = disabled;
+        nextBtn.setAttribute('aria-disabled', disabled ? 'true' : 'false');
+    }
 }
 
 function clearHomeSlideshowTimer() {
@@ -217,7 +240,7 @@ function ensureHomeSlideshow() {
 }
 
 function stepHomeBg(delta) {
-    if (!document.getElementById('homeSlideshowBg')) return;
+    if (!document.getElementById('homeSlideshowBg') || isTransitioning) return;
     applyHomeBg(currentBgIndex + delta);
     scheduleHomeSlideshowTick();
 }

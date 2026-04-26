@@ -137,6 +137,14 @@ h1, h2, h3, h4 {
     border-color: rgba(255, 255, 255, 0.75);
 }
 
+.home-slideshow-btn:disabled,
+.home-slideshow-btn[aria-disabled="true"] {
+    opacity: 0.55;
+    cursor: not-allowed;
+    pointer-events: none;
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
 .home-slideshow-btn:focus-visible {
     outline: 2px solid #3498db;
     outline-offset: 2px;
