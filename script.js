@@ -666,6 +666,284 @@ const projectsData = [
         name: "Akustik Proje 6",
         category: "akustik",
         images: ["images/akustik/7.jpg"]
+    },
+    // İç Mimarlık - Konut Projects
+    {
+        name: "Bina Girişi",
+        category: "icmimarlik-konut",
+        images: [
+            "images/ic_mimari/konut/bina girişi/c.jpg",
+            "images/ic_mimari/konut/bina girişi/E.jpg"
+        ]
+    },
+    {
+        name: "Çamaşır Odası",
+        category: "icmimarlik-konut",
+        images: [
+            "images/ic_mimari/konut/çamaşır odası/1_Post.jpg",
+            "images/ic_mimari/konut/çamaşır odası/2_Post.jpg",
+            "images/ic_mimari/konut/çamaşır odası/3_Post.jpg",
+            "images/ic_mimari/konut/çamaşır odası/4_Post.jpg"
+        ]
+    },
+    {
+        name: "Çocuk Odası",
+        category: "icmimarlik-konut",
+        images: [
+            "images/ic_mimari/konut/çocuk odası/1.jpg",
+            "images/ic_mimari/konut/çocuk odası/2.jpg",
+            "images/ic_mimari/konut/çocuk odası/3.jpg",
+            "images/ic_mimari/konut/çocuk odası/4.jpg",
+            "images/ic_mimari/konut/çocuk odası/5.jpg",
+            "images/ic_mimari/konut/çocuk odası/6.jpg",
+            "images/ic_mimari/konut/çocuk odası/7.jpg"
+        ]
+    },
+    {
+        name: "Giyinme Odası",
+        category: "icmimarlik-konut",
+        images: [
+            "images/ic_mimari/konut/giyinme odası/1-2.jpg",
+            "images/ic_mimari/konut/giyinme odası/2-2.jpg",
+            "images/ic_mimari/konut/giyinme odası/2-3-2.jpg",
+            "images/ic_mimari/konut/giyinme odası/3-2.jpg"
+        ]
+    },
+    {
+        name: "Konut Banyo",
+        category: "icmimarlik-konut",
+        images: [
+            "images/ic_mimari/konut/konut banyo/banyo1_Post.jpg",
+            "images/ic_mimari/konut/konut banyo/banyo2_Post.jpg",
+            "images/ic_mimari/konut/konut banyo/banyo3_Post.jpg"
+        ]
+    },
+    {
+        name: "Konut İçi Havuz",
+        category: "icmimarlik-konut",
+        images: [
+            "images/ic_mimari/konut/konut içi havuz/1_View01_Post.jpg",
+            "images/ic_mimari/konut/konut içi havuz/2_Post.jpg",
+            "images/ic_mimari/konut/konut içi havuz/3_Post111.jpg",
+            "images/ic_mimari/konut/konut içi havuz/3_Post.jpg",
+            "images/ic_mimari/konut/konut içi havuz/4_Post.jpg",
+            "images/ic_mimari/konut/konut içi havuz/5_Post.jpg",
+            "images/ic_mimari/konut/konut içi havuz/6_Post111.jpg",
+            "images/ic_mimari/konut/konut içi havuz/6_Post.jpg",
+            "images/ic_mimari/konut/konut içi havuz/7_Post111.jpg",
+            "images/ic_mimari/konut/konut içi havuz/7_Post.jpg",
+            "images/ic_mimari/konut/konut içi havuz/8_Post.jpg",
+            "images/ic_mimari/konut/konut içi havuz/9_Post.jpg",
+            "images/ic_mimari/konut/konut içi havuz/WhatsApp Image 2023-09-12 at 15.51.19.jpeg"
+        ]
+    },
+    {
+        name: "Konut WC",
+        category: "icmimarlik-konut",
+        images: [
+            "images/ic_mimari/konut/konut wc/wc1_Post.jpg",
+            "images/ic_mimari/konut/konut wc/wc2_Post.jpg"
+        ]
+    },
+    {
+        name: "Mutfak",
+        category: "icmimarlik-konut",
+        images: [
+            "images/ic_mimari/konut/mutfak/murfak3-1_Post.jpg",
+            "images/ic_mimari/konut/mutfak/r1.jpg",
+            "images/ic_mimari/konut/mutfak/r2_Post.jpg",
+            "images/ic_mimari/konut/mutfak/r3_Post.jpg",
+            "images/ic_mimari/konut/mutfak/rev1_Post-2.jpg"
+        ]
+    },
+    {
+        name: "Salon",
+        category: "icmimarlik-konut",
+        images: [
+            "images/ic_mimari/konut/salon/1.jpg",
+            "images/ic_mimari/konut/salon/2.jpg",
+            "images/ic_mimari/konut/salon/3.jpg",
+            "images/ic_mimari/konut/salon/4.jpg",
+            "images/ic_mimari/konut/salon/5.jpg"
+        ]
+    },
+    {
+        name: "Salon 2",
+        category: "icmimarlik-konut",
+        images: [
+            "images/ic_mimari/konut/salon 2/1_Post.jpg",
+            "images/ic_mimari/konut/salon 2/2_Post.jpg",
+            "images/ic_mimari/konut/salon 2/3_Post.jpg",
+            "images/ic_mimari/konut/salon 2/4_Post.jpg",
+            "images/ic_mimari/konut/salon 2/5_Post.jpg"
+        ]
+    },
+    {
+        name: "Salon Mutfak",
+        category: "icmimarlik-konut",
+        images: [
+            "images/ic_mimari/konut/salon mutfak/1.jpg",
+            "images/ic_mimari/konut/salon mutfak/3.jpg",
+            "images/ic_mimari/konut/salon mutfak/8.jpg",
+            "images/ic_mimari/konut/salon mutfak/Salon1.jpg"
+        ]
+    },
+    {
+        name: "Teras",
+        category: "icmimarlik-konut",
+        images: [
+            "images/ic_mimari/konut/teras/SAĞ TERAS 1.jpg",
+            "images/ic_mimari/konut/teras/SAĞ TERAS 2.jpg",
+            "images/ic_mimari/konut/teras/SAĞ TERAS 3.jpg",
+            "images/ic_mimari/konut/teras/SAĞ TERAS 4.jpg",
+            "images/ic_mimari/konut/teras/SAĞ TERAS 5.jpg",
+            "images/ic_mimari/konut/teras/SAĞ TERAS 6.jpg",
+            "images/ic_mimari/konut/teras/SOL TERAS 10.jpg",
+            "images/ic_mimari/konut/teras/SOL TERAS 7.jpg",
+            "images/ic_mimari/konut/teras/SOL TERAS 8.jpg",
+            "images/ic_mimari/konut/teras/SOL TERAS 9.jpg",
+            "images/ic_mimari/konut/teras/ŞÖM.jpg"
+        ]
+    },
+    {
+        name: "Ulugöl Villa Salon Mutfak",
+        category: "icmimarlik-konut",
+        images: [
+            "images/ic_mimari/konut/ulugöl villa salon mutfak/1.jpg",
+            "images/ic_mimari/konut/ulugöl villa salon mutfak/2.jpg",
+            "images/ic_mimari/konut/ulugöl villa salon mutfak/4a.jpg",
+            "images/ic_mimari/konut/ulugöl villa salon mutfak/5.jpg",
+            "images/ic_mimari/konut/ulugöl villa salon mutfak/6.jpg",
+            "images/ic_mimari/konut/ulugöl villa salon mutfak/7.jpg"
+        ]
+    },
+    {
+        name: "Yatak Odası",
+        category: "icmimarlik-konut",
+        images: [
+            "images/ic_mimari/konut/yatak odası/1.jpg",
+            "images/ic_mimari/konut/yatak odası/2.jpg",
+            "images/ic_mimari/konut/yatak odası/3.jpg",
+            "images/ic_mimari/konut/yatak odası/4.jpg",
+            "images/ic_mimari/konut/yatak odası/5.jpg"
+        ]
+    },
+    // İç Mimarlık - Otel Projects
+    {
+        name: "Butik Otel",
+        category: "icmimarlik-otel",
+        images: [
+            "images/ic_mimari/otel/butik otel/1.jpg",
+            "images/ic_mimari/otel/butik otel/2.jpg",
+            "images/ic_mimari/otel/butik otel/3.jpg",
+            "images/ic_mimari/otel/butik otel/4.jpg",
+            "images/ic_mimari/otel/butik otel/5.jpg",
+            "images/ic_mimari/otel/butik otel/6.jpg"
+        ]
+    },
+    {
+        name: "Ortak WC",
+        category: "icmimarlik-otel",
+        images: [
+            "images/ic_mimari/otel/ortak wc/1_Post-2.jpg",
+            "images/ic_mimari/otel/ortak wc/2_Post-2.jpg",
+            "images/ic_mimari/otel/ortak wc/3_Post-2.jpg",
+            "images/ic_mimari/otel/ortak wc/4_Post-2.jpg",
+            "images/ic_mimari/otel/ortak wc/top_Post-2.jpg"
+        ]
+    },
+    {
+        name: "Otel Konferans Salonu",
+        category: "icmimarlik-otel",
+        images: [
+            "images/ic_mimari/otel/otel konferans salonu/10_Post.jpg",
+            "images/ic_mimari/otel/otel konferans salonu/1_View01_Post.jpg",
+            "images/ic_mimari/otel/otel konferans salonu/6_Post.jpg",
+            "images/ic_mimari/otel/otel konferans salonu/8_Post.jpg"
+        ]
+    },
+    {
+        name: "Otel Toplantı Salonu",
+        category: "icmimarlik-otel",
+        images: [
+            "images/ic_mimari/otel/otel toplantı salonu/10_Post-2.jpg",
+            "images/ic_mimari/otel/otel toplantı salonu/11_Post-2.jpg",
+            "images/ic_mimari/otel/otel toplantı salonu/1_Post-2.jpg",
+            "images/ic_mimari/otel/otel toplantı salonu/3_Post-2.jpg",
+            "images/ic_mimari/otel/otel toplantı salonu/9_Post-2.jpg"
+        ]
+    },
+    {
+        name: "Otel Yatak Odası",
+        category: "icmimarlik-otel",
+        images: [
+            "images/ic_mimari/otel/otel yatak odası/1.jpg",
+            "images/ic_mimari/otel/otel yatak odası/2.jpg",
+            "images/ic_mimari/otel/otel yatak odası/3.jpg",
+            "images/ic_mimari/otel/otel yatak odası/4.jpg",
+            "images/ic_mimari/otel/otel yatak odası/5.jpg",
+            "images/ic_mimari/otel/otel yatak odası/6.jpg",
+            "images/ic_mimari/otel/otel yatak odası/7.jpg",
+            "images/ic_mimari/otel/otel yatak odası/8.jpg"
+        ]
+    },
+    {
+        name: "Otel Yatak Odası 2",
+        category: "icmimarlik-otel",
+        images: [
+            "images/ic_mimari/otel/otel yatak odası 2/WhatsApp Image 2022-07-02 at 15.58.14.jpeg",
+            "images/ic_mimari/otel/otel yatak odası 2/WhatsApp Image 2022-07-02 at 15.58.15 (1).jpeg",
+            "images/ic_mimari/otel/otel yatak odası 2/WhatsApp Image 2022-07-02 at 15.58.15 (2).jpeg",
+            "images/ic_mimari/otel/otel yatak odası 2/WhatsApp Image 2022-07-02 at 15.58.15.jpeg",
+            "images/ic_mimari/otel/otel yatak odası 2/WhatsApp Image 2022-07-02 at 15.58.16 (1).jpeg",
+            "images/ic_mimari/otel/otel yatak odası 2/WhatsApp Image 2022-07-02 at 15.58.16 (2).jpeg",
+            "images/ic_mimari/otel/otel yatak odası 2/WhatsApp Image 2022-07-02 at 15.58.16.jpeg"
+        ]
+    },
+    // İç Mimarlık - Ticari Projects
+    {
+        name: "Restoran",
+        category: "icmimarlik-ticari",
+        images: [
+            "images/ic_mimari/ticari/restoran/10_Post.jpg",
+            "images/ic_mimari/ticari/restoran/1_Post.jpg",
+            "images/ic_mimari/ticari/restoran/2_Post.jpg",
+            "images/ic_mimari/ticari/restoran/3_Post.jpg",
+            "images/ic_mimari/ticari/restoran/4_Post.jpg",
+            "images/ic_mimari/ticari/restoran/5_Post.jpg",
+            "images/ic_mimari/ticari/restoran/6_Post.jpg",
+            "images/ic_mimari/ticari/restoran/7_Post.jpg",
+            "images/ic_mimari/ticari/restoran/8_Post.jpg",
+            "images/ic_mimari/ticari/restoran/9_Post.jpg",
+            "images/ic_mimari/ticari/restoran/top_Post.jpg"
+        ]
+    },
+    {
+        name: "Telefon Mağazası",
+        category: "icmimarlik-ticari",
+        images: [
+            "images/ic_mimari/ticari/telefon mağazası/1_Post.jpg",
+            "images/ic_mimari/ticari/telefon mağazası/2_Post.jpg",
+            "images/ic_mimari/ticari/telefon mağazası/3_Post.jpg",
+            "images/ic_mimari/ticari/telefon mağazası/4_Post.jpg",
+            "images/ic_mimari/ticari/telefon mağazası/5_Post.jpg"
+        ]
+    },
+    // İç Mimarlık - Ofis Projects
+    {
+        name: "Ofis Çalışma Alanı",
+        category: "icmimarlik-ofis",
+        images: [
+            "images/ic_mimari/ofis/ofis çalışma alanı/10_Post-2.jpg",
+            "images/ic_mimari/ofis/ofis çalışma alanı/1_Post-2.jpg",
+            "images/ic_mimari/ofis/ofis çalışma alanı/2_Post-2.jpg",
+            "images/ic_mimari/ofis/ofis çalışma alanı/3_Post-2.jpg",
+            "images/ic_mimari/ofis/ofis çalışma alanı/4_Post-2.jpg",
+            "images/ic_mimari/ofis/ofis çalışma alanı/6_Post-2.jpg",
+            "images/ic_mimari/ofis/ofis çalışma alanı/7_Post-2.jpg",
+            "images/ic_mimari/ofis/ofis çalışma alanı/8_Post-2.jpg",
+            "images/ic_mimari/ofis/ofis çalışma alanı/9_Post-2.jpg"
+        ]
     }
 ];
 
